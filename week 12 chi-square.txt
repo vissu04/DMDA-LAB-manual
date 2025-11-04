@@ -1,0 +1,13 @@
+#chi-square
+library("MASS")
+print(str(Cars93))
+car<-data.frame(Cars93$AirBags,Cars93$Type)
+car=table(Cars93$AirBags,Cars93$Type)
+print(car)
+smoothScatter(car)
+print(chisq.test(car))
+
+output:
+pearson's chi-squared test
+data:car
+x-squared = 33.001,df=10,p_value=0.0002723

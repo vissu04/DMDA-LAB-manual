@@ -1,0 +1,21 @@
+# Mean
+x<-c(12,7,3,4,2.18,18.2,545,4,-21,8,-5,7,9,NA)
+res.mean<- mean(x,na.rm=TRUE,trim=0.3)
+print(paste("mean value=",res.mean))
+# Median:-
+x<- c(12,7,3,4,2.18,18.2,54,-21,8,-5,8,7,9,NA)
+res.median<-median(x,na.rm=TRUE,trim=0.3)
+print(paste("median value=",res.median))
+#mode
+x<-c(12,7,3,4,2.18,18.2,54,-21,8,-5,8,7,9)
+getmode<-function(x){
+  uniq<-unique(x)
+  uniq[which.max(tabulate(match(x,uniq)))]
+}
+res<-getmode(x)
+print(paste("Mode value= ",res))
+
+OUTPUT:-
+[1] "mean value= 6"
+[1] "median value= 7"
+[1] "Mode value=  7"

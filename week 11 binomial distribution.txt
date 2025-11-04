@@ -1,0 +1,59 @@
+#binomial distribution
+1. dbinom
+
+x<-seq(0,50,by=1)
+y<-dbniom(x,50,0.5)
+png(file="dbinom.png")
+plot(x,y)
+dev.off()
+
+output:
+_________________________
+            .
+           .  .
+          .    .
+         .       .
+. . . . .          . . . .
+__________________________
+
+2.pbinom
+
+x<-pbinom(26,.51,0.5)
+print(x)
+plot(x)
+
+output: [1] 0.610116
+ ___
+| . |
+|   |
+ ___
+
+
+3.qbinom
+
+x<-qbinom(0.25,30,1/2)
+print(x)
+plot(x)
+
+output: [1] 13
+
+ ___
+| . |
+|   |
+ ___
+
+4. rbinom
+
+x<-rbinom(8,150,.4)
+print(x)
+plot(x)
+
+output: [1] 56 65 55 51 57 59 55 58
+________________
+       .        
+.        .      
+ .         .    
+  .
+.
+    .
+_________________

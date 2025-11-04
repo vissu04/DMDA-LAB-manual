@@ -1,0 +1,23 @@
+#logistic regression
+input<-mtcars[,c("mpg","wt","disp","hp")]
+result<-glm(mpg~wt+disp*hp,data=input)
+print(summary(result))
+plot(result)
+
+output:-
+Call:
+glm(formula = mpg ~ wt + disp * hp, data = input)
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  4.447e+01  2.699e+00  16.477 1.30e-15 ***
+wt          -3.433e+00  8.977e-01  -3.824 0.000703 ***
+disp        -4.219e-02  1.434e-02  -2.941 0.006634 ** 
+hp          -9.575e-02  2.030e-02  -4.716 6.53e-05 ***
+disp:hp      2.589e-04  7.177e-05   3.607 0.001239 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+(Dispersion parameter for gaussian family taken to be 4.873369)
+    Null deviance: 1126.05  on 31  degrees of freedom
+Residual deviance:  131.58  on 27  degrees of freedom
+AIC: 148.06
+Number of Fisher Scoring iterations: 2

@@ -1,0 +1,38 @@
+#poisson Regression
+#warpbreaks
+input<- warpbreaks
+print(head(input))
+plot(input)
+output<-glm(formula = breaks~wool+tension,data =input,family = poisson)
+print(summary(output))
+plot(output)
+
+output:-
+  breaks wool tension
+1     26    A       L
+2     30    A       L
+3     54    A       L
+4     25    A       L
+5     70    A       L
+6     52    A       L
+glm(formula = breaks ~ wool + tension, family = poisson, data = input)
+Coefficients:
+            Estimate Std. Error
+(Intercept)  3.69196    0.04541
+woolB       -0.20599    0.05157
+tensionM    -0.32132    0.06027
+tensionH    -0.51849    0.06396
+            z value Pr(>|z|)    
+(Intercept)  81.302  < 2e-16 ***
+woolB        -3.994 6.49e-05 ***
+tensionM     -5.332 9.73e-08 ***
+tensionH     -8.107 5.21e-16 ***
+---
+Signif. codes:  
+  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05
+  ‘.’ 0.1 ‘ ’ 1
+(Dispersion parameter for poisson family taken to be 1)
+    Null deviance: 297.37  on 53  degrees of freedom
+Residual deviance: 210.39  on 50  degrees of freedom
+AIC: 493.06
+Number of Fisher Scoring iterations: 4

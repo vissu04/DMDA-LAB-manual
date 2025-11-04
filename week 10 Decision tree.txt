@@ -1,0 +1,52 @@
+#Decision tree
+data("iris")
+install.packages("caret")
+install.packages("C50")
+library(caret)
+library(C50)
+set.seed(7)
+inTraininglocal<-createDataPartition(iris$Species,p=.70,list = F)
+training<-iris[inTraininglocal,]
+testing<-iris[-inTraininglocal,]
+model<-C5.0(Species~.,data = training)
+summary(model)
+pred<-predict.C5.0(model,testing[,-5]) #type ="prob"
+a<-table(testing$Species,pred)
+sum(diag(a))/sum(a)
+plot(model)
+
+#png(file="model.png")
+#plot(model)
+#dev.off()
+
+OUTPUT:-
+Class specified by attribute `outcome'
+Read 105 cases (5 attributes) from undefined.data
+Decision tree:
+Petal.Length <= 1.9: setosa (35)
+Petal.Length > 1.9:
+:...Petal.Width > 1.7: virginica (33/1)
+    Petal.Width <= 1.7:
+    :...Petal.Length <= 4.9: versicolor (32)
+        Petal.Length > 4.9:
+        :...Petal.Width <= 1.5: virginica (3)
+            Petal.Width > 1.5: versicolor (2)
+
+Evaluation on training data (105 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	     5    1( 1.0%)   <<
+
+	   (a)   (b)   (c)    <-classified as
+	  ----  ----  ----
+	    35                (a): class setosa
+	          34     1    (b): class versicolor
+	                35    (c): class virginica
+	Attribute usage:
+	100.00%	Petal.Length
+	 66.67%	Petal.Width
+Time: 0.0 secs
+0.9555556

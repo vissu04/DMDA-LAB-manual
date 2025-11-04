@@ -1,0 +1,45 @@
+week2 contactlenses.arff
+@relation contact-lenses
+@attribute age 			{young, pre-presbyopic, presbyopic}
+@attribute spectacle-prescrip	{myope, hypermetrope}
+@attribute astigmatism		{no, yes}
+@attribute tear-prod-rate	{reduced, normal}
+@attribute contact-lenses	{soft, hard, none}
+@data
+%
+young,myope,no,reduced,none
+young,myope,no,normal,soft
+young,myope,yes,reduced,none
+pre-presbyopic,myope,no,reduced,none
+pre-presbyopic,myope,no,normal,soft
+pre-presbyopic,myope,yes,reduced,none
+presbyopic,myope,no,reduced,none
+presbyopic,myope,no,normal,none
+presbyopic,myope,yes,reduced,none
+output:-
+=== Run information ===
+Scheme:       weka.associations.Apriori -N 5 -T 0 -C 0.9 -D 0.05 -U 1.0 -M 0.1 -S -1.0 -c -1
+Relation:     contact-lenses
+Instances:    24
+Attributes:   5
+              age
+              spectacle-prescrip
+              astigmatism
+              tear-prod-rate
+              contact-lenses
+=== Associator model (full training set) ===
+Apriori
+=======
+Minimum support: 0.25 (6 instances)
+Minimum metric <confidence>: 0.9
+Number of cycles performed: 15
+Generated sets of large itemsets:
+Size of set of large itemsets L(1): 10
+Size of set of large itemsets L(2): 18
+Size of set of large itemsets L(3): 4
+Best rules found:
+1. tear-prod-rate=reduced 12 ==> contact-lenses=none 12    <conf:(1)> lift:(1.6) lev:(0.19) [4] conv:(4.5)
+2. spectacle-prescrip=myope tear-prod-rate=reduced 6 ==> contact-lenses=none 6    <conf:(1)> lift:(1.6) lev:(0.09) [2] conv:(2.25)
+3. spectacle-prescrip=hypermetrope tear-prod-rate=reduced 6 ==> contact-lenses=none 6    <conf:(1)> lift:(1.6) lev:(0.09) [2] conv:(2.25)
+4. astigmatism=no tear-prod-rate=reduced 6 ==> contact-lenses=none 6    <conf:(1)> lift:(1.6) lev:(0.09) [2] conv:(2.25)
+5. astigmatism=yes tear-prod-rate=reduced 6 ==> contact-lenses=none 6    <conf:(1)> lift:(1.6) lev:(0.09) [2] conv:(2.25)

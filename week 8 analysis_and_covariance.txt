@@ -1,0 +1,40 @@
+
+#analysis and covariance
+input<-mtcars[,c("am","mpg","hp")]
+print(head(input))
+input<-mtcars
+result1<-aov(mpg~hp*am,data=input)
+print(summary(result1))
+result2<-aov(mpg~hp+am,data=input)
+print(summary(result2))
+print(anova(result1,result2))
+boxplot(anova(result1,result2))
+
+output
+                am  mpg  hp
+Mazda RX4          1 21.0 110
+Mazda RX4 Wag      1 21.0 110
+Datsun 710         1 22.8  93
+Hornet 4 Drive     0 21.4 110
+Hornet Sportabout  0 18.7 175
+Valiant            0 18.1 105
+            Df Sum Sq Mean Sq F value   Pr(>F)    
+hp           1  678.4   678.4  77.391 1.50e-09 ***
+am           1  202.2   202.2  23.072 4.75e-05 ***
+hp:am        1    0.0     0.0   0.001    0.981    
+Residuals   28  245.4     8.8                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+            Df Sum Sq Mean Sq F value   Pr(>F)    
+hp           1  678.4   678.4   80.15 7.63e-10 ***
+am           1  202.2   202.2   23.89 3.46e-05 ***
+Residuals   29  245.4     8.5                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Analysis of Variance Table
+
+Model 1: mpg ~ hp * am
+Model 2: mpg ~ hp + am
+  Res.Df    RSS Df  Sum of Sq     F Pr(>F)
+1     28 245.43                           
+2     29 245.44 -1 -0.0052515 6e-04 0.9806

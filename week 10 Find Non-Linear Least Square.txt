@@ -1,0 +1,17 @@
+#Find Non-Linear Least Square
+x<-c(1.6, 2.1, 2, 2.23, 3.71, 3.25, 3.4, 3.86, 1.19 ,2.21)
+y<-c(5.19, 7.43, 6.94, 8.11, 18.75, 14.88, 16.66, 19.12, 3.21, 7.58)
+png(file="nls.png")
+plot(x,y)
+model<-nls(y ~ b1 * x ^ 2+b2, start=list(b1=1,b2=3))
+new.data<-data.frame(x=seq(min(x),max(y),len=100))
+lines(new.data$x,predict(model,newdata=new.data))
+dev.off()
+print(sum(resid(model)^2))
+print(confint(model))  
+
+output:[1] 1.081935
+waiting for profiling to be done....
+2.5%        97.5%
+b1   1.137708     1.253135
+b2   1.497364     2.496484

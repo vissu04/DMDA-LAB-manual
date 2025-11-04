@@ -1,0 +1,67 @@
+#Normal distribution
+1. dnorm
+
+x<-seq(-10,10,by=1)
+y<-dnorm(x,mean=2.5,sd=0.5)
+png(file="dnorm.png")
+plot(x,y)
+dev.off()
+
+output:
+_________________________
+            .
+           .  .
+          .    .
+         .       .
+. . . . .          . . . .
+__________________________
+
+2.pbinom
+
+x<-seq(-10,10,by=2)
+y<-pnorm(x,mean=2.5,sd=0.5)
+png(file="pnorm.png")
+plot(x,y)
+dev.off()
+
+output: 
+____________________
+           . . . .
+         .
+       .
+      .
+. . .  
+____________________
+
+3.qnorm
+
+x<-seq(0.1,by=0.02)
+y<-qnorm(x,mean=2,sd=1)
+plot(x,y)
+
+output:
+______________________
+              . . . .
+             .
+           .
+         .
+. . . . .
+_______________________
+
+4. rnorm
+
+y<-rnorm(50)
+png(file="rnorm.png)
+hist(y,main="NormalDistribution)
+dev.off()
+
+output:
+
+     _
+    | |
+   _| |
+  | | |
+ _| | |  _
+| | | |_| |
+| | | | | |
+| | | | | |

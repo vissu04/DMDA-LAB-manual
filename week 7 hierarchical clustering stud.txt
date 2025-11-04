@@ -1,0 +1,39 @@
+week 7 hierarchical clustering student.arff
+@relation student
+@attribute age{<30,30-40,>40}
+@attribute income{low,medium,high}
+@attribute student{yes,no}
+@attribute credit_rating{fair,excellent}
+@attribute byspec{yes,no}
+@data
+<30,high,no,fair,no
+<30,high,no,excellent,no
+30-40,high,no,fair,no
+>40,medium,no,fair,no
+>40,high,no,fair,no
+30-40,high,no,excellent,no
+30-40,high,no,fair,yes,
+30-40,high,yes,fair,no
+
+output:-
+=== Run information ===
+Scheme:       weka.clusterers.HierarchicalClusterer -N 2 -L SINGLE -P -A "weka.core.EuclideanDistance -R first-last"
+Relation:     student
+Instances:    8
+Attributes:   5
+              age
+              income
+              student
+              credit_rating
+              byspec
+Test mode:    evaluate on training data
+=== Clustering model (full training set) ===
+Cluster 0
+((1.0:1,1.0:1):0,(((1.0:1,1.0:1):0,1.0:1):0,0.0:1):0)
+Cluster 1
+(1.0:1,1.0:1)
+Time taken to build model (full training data) : 0 seconds
+=== Model and evaluation on training set ===
+Clustered Instances
+0      6 ( 75%)
+1      2 ( 25%)

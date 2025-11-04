@@ -1,0 +1,15 @@
+#f-test
+x<-c(66,67,75,76,82,84,88,90,92)
+y<-c(64,66,74,78,82,85,87,92,93,95,99)
+print(var.test(x,y))
+
+output:-
+F test to compare two variances
+data:  x and y
+F = 0.67581, num df = 8, denom df = 10, p-value = 0.5912
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.1753115 2.9026764
+sample estimates:
+ratio of variances 
+         0.6758069 

@@ -1,0 +1,15 @@
+#linear Regression
+x<-c(1,2,3,4,5)
+y<-c(1.2,1.8,2.6,3.2,3.8)
+result<-lm(y~x)
+print(result)
+plot(x,y,col='red',main="weekly scales Reort",
+       abline(lm(y~x)),cex=1.3,pch=16,xlab="weeks",ylab="Sales")
+
+output
+Call:
+lm(formula = y ~ x)
+
+Coefficients:
+(Intercept)            x  
+       0.54         0.66  
